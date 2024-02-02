@@ -34,6 +34,15 @@ public class TextSeparator {
         return file;
     }
 
+    private void printInfoHelp(InnerStatistics statistics, String nameOfType) {
+        System.out.println("Statistics about " + nameOfType + ":");
+        if (shortStatFlag ) {
+            System.out.println(statistics.getShortStatistics());
+        } else {
+            System.out.println(statistics.getFullStatistics());
+        }
+    }
+
     public TextSeparator(String[] args) {
         for (int i = 0; i < args.length; ++i) {
             if (args[i].compareTo("-p") == 0 && i + 1 < args.length) {
@@ -105,6 +114,12 @@ public class TextSeparator {
     }
 
     public void printInfo()  {
-        
+        if (shortStatFlag || fullStatFlag) {
+            printInfoHelp(intStat, "integers");
+            printInfoHelp(floatStat, "floats");
+            printInfoHelp(strStat, "strings");
+        } else {
+            System.err.println("The separation is completed successfully;");
+        }
     }
 }
