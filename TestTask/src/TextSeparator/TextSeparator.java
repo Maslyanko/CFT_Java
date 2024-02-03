@@ -57,6 +57,8 @@ public class TextSeparator {
                 fullStatFlag = true;
             } else if (args[i].indexOf(".txt") == args[i].length() - 4) {
                 inputFiles.addLast(args[i]);
+            } else {
+                System.out.printf("Undefined input argument: " + args[i] + ";\n");
             }
         }
         if (fullStatFlag || shortStatFlag) {
